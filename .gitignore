@@ -1,0 +1,20 @@
+# Windows
+Thumbs.db
+desktop.ini
+
+# macOS
+.DS_Store
+._*
+
+# Logs
+*.log
+*.err
+
+# Credentials
+*.cred
+*.pfx
+*.key
+
+# IDE
+.vscode/
+.idea/
