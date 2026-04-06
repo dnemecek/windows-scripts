@@ -10,7 +10,9 @@ desktop.ini
 *.log
 *.err
 
-# Credentials
+# Credentials a secrets
+.env
+*.env
 *.cred
 *.pfx
 *.key
