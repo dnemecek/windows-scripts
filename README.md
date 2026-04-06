@@ -1,43 +1,43 @@
 # windows-scripts
 
-General-purpose Windows PowerShell scripts. Ansible-ready, GPO-ready (dual-ready standard).
+Obecné Windows PowerShell skripty. Ansible-ready, GPO-ready (dual-ready standard).
 
-## Structure
+## Struktura
 
-Every `.ps1` script has a matching `.cmd` launcher for easy execution from CMD with `ExecutionPolicy Bypass` and parameter passthrough (`%*`).
+Ke každému `.ps1` skriptu existuje `.cmd` launcher pro snadné spuštění z CMD s `ExecutionPolicy Bypass` a předáním parametrů přes `%*`.
 
-## Scripts
+## Skripty
 
-| Script | Description |
+| Skript | Popis |
 |---|---|
-| `Reset-RdsGracePeriod` | Reset RDS grace period when below threshold. Supports `-Status`, `-DryRun`, `-DisableLicenseNotification`. |
+| `Reset-RdsGracePeriod` | Reset RDS grace period pokud je pod prahem. Podporuje `-Status`, `-DryRun`, `-DisableLicenseNotification`. |
 
-## Usage
+## Použití
 
 ```powershell
-# Status check
+# Zjisteni stavu
 .\Reset-RdsGracePeriod.ps1 -Status
 
-# Dry run
+# Simulace bez zmen
 .\Reset-RdsGracePeriod.ps1 -DryRun -Force -GraceThreshold 90
 
 # Reset
 .\Reset-RdsGracePeriod.ps1 -Force
 
-# Via CMD launcher
+# Pres CMD launcher
 Reset-RdsGracePeriod.cmd -Force -Verbose
 ```
 
-## Output
+## Výstup
 
-All scripts produce JSON on stdout (Ansible-compatible):
+Všechny skripty produkují JSON na stdout (kompatibilní s Ansible):
 
 ```json
 {"changed":true,"reboot_required":true,"status":"reset_done","msg":"Grace period reset to 120 days"}
 ```
 
-Logging goes to file only (default: `C:\Windows\Logs\<ScriptName>.log`), never to stdout.
+Logování do souboru (výchozí: `C:\Windows\Logs\<ScriptName>.log`), nikdy na stdout.
 
-## Author
+## Autor
 
-David Nemecek
+David Němeček
