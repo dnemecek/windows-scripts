@@ -1,42 +1,24 @@
 # windows-scripts
 
-Obecné Windows PowerShell skripty. Ansible-ready, GPO-ready (dual-ready standard).
-
-## Struktura
-
-Ke každému `.ps1` skriptu existuje `.cmd` launcher pro snadné spuštění z CMD s `ExecutionPolicy Bypass` a předáním parametrů přes `%*`.
+Meta-repozitář — kolekce obecných Windows PowerShell skriptů jako git submodulů. Žádný vlastní kód.
 
 ## Skripty
 
-| Skript | Popis |
+| Submodul | Popis |
 |---|---|
-| `Reset-RdsGracePeriod` | Reset RDS grace period pokud je pod prahem. Podporuje `-Status`, `-DryRun`, `-DisableLicenseNotification`. |
+| [Reset-RdsGracePeriod](https://github.com/dnemecek/Reset-RdsGracePeriod) | Reset RDS grace period pokud je pod prahem |
 
-## Použití
+## Stažení všech skriptů
 
-```powershell
-# Zjisteni stavu
-.\Reset-RdsGracePeriod.ps1 -Status
-
-# Simulace bez zmen
-.\Reset-RdsGracePeriod.ps1 -DryRun -Force -GraceThreshold 90
-
-# Reset
-.\Reset-RdsGracePeriod.ps1 -Force
-
-# Pres CMD launcher
-Reset-RdsGracePeriod.cmd -Force -Verbose
+```bash
+git clone --recurse-submodules https://github.com/dnemecek/windows-scripts.git
 ```
 
-## Výstup
+## Aktualizace
 
-Všechny skripty produkují JSON na stdout (kompatibilní s Ansible):
-
-```json
-{"changed":true,"reboot_required":true,"status":"reset_done","msg":"Grace period reset to 120 days"}
+```bash
+git pull && git submodule update --remote
 ```
-
-Logování do souboru (výchozí: `C:\Windows\Logs\<ScriptName>.log`), nikdy na stdout.
 
 ## Autor
 

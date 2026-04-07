@@ -1,0 +1,3 @@
+[submodule "Reset-RdsGracePeriod"]
+	path = Reset-RdsGracePeriod
+	url = https://github.com/dnemecek/Reset-RdsGracePeriod.git
