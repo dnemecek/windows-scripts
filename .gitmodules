@@ -4,6 +4,3 @@
 [submodule "uninstall-msipackage"]
 	path = uninstall-msipackage
 	url = https://github.com/dnemecek/uninstall-msipackage.git
-[submodule "set-remoteapp-workspace"]
-	path = set-remoteapp-workspace
-	url = https://github.com/dnemecek/set-remoteapp-workspace.git
